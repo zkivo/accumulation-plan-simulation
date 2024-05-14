@@ -38,7 +38,7 @@ for file_name in os.listdir(indices_folder):
     # Identify points where the price dropped 5%, 10%, 15% and 20%
     # market_index.astype({'Price': 'float32'})
     market_index['Drop_5_Percent'] = \
-        market_index['Price'] <= (market_index['All_Time_High'] * 0.90)
+        market_index['Price'] <= (market_index['All_Time_High'] * 0.95)
     # market_index['Drop_10_Percent'] = \
     #     market_index['Price'] <= (market_index['All_Time_High'] * 0.90)
     # market_index['Drop_15_Percent'] = \
@@ -66,47 +66,33 @@ for file_name in os.listdir(indices_folder):
     for key in operations:
         sum += last_price / operations[key][0] * operations[key][1]
 
-    print('ett', sum / num_of_salaries - 1)
+    print('', sum / num_of_salaries - 1)
 
-    prev_date = market_index.index[0]
-    del operations
-    operations = {}
-    for index, row in market_index.iterrows():
-        distance = (index - prev_date).days
-        if distance > 28: # salary every 4 weeks
-            operations[index] = (row['Price'], int(distance / 28))
-            prev_date = index
+    # prev_date = market_index.index[0]
+    # del operations
+    # operations = {}
+    # for index, row in market_index.iterrows():
+    #     distance = (index - prev_date).days
+    #     if distance > 28: # salary every 4 weeks
+    #         operations[index] = (row['Price'], int(distance / 28))
+    #         prev_date = index
 
-    sum = 0
-    for key in operations:
-        sum += last_price / operations[key][0] * operations[key][1]
+    # sum = 0
+    # for key in operations:
+    #     sum += last_price / operations[key][0] * operations[key][1]
 
-    print('tva', sum / num_of_salaries - 1)
+    # print('tva', sum / num_of_salaries - 1)
 
-    dates = pd.Series(market_index.index)
-    first_day_of_month = dates.groupby([dates.dt.year, dates.dt.month]).min().reset_index(drop=True)
+    # dates = pd.Series(market_index.index)
+    # first_day_of_month = dates.groupby([dates.dt.year, dates.dt.month]).min().reset_index(drop=True)
     # relationship = last_day_price / market_index.loc[first_day_of_month,'Price']
-
-    # print(relationship)
-    # print(relationship.sum())
-    # print(relationship.size)
-    
-    # print(relationship.sum() / relationship.size - 1)
-
-    # print(market_index.index.to_period('M').unique())
-
-    # pd.DataFrame(market_index.index).to_csv('diobono.csv')
-
-    # first_days = market_index.index.to_period('M').to_timestamp().drop_duplicates()
-
-    # print(first_days)
 
     # Plotting both datasets
     plt.figure(figsize=(14, 7))
-    plt.plot(market_index.index, market_index['Price'], label='FTSE All World Index', color='blue')
+    plt.plot(market_index.index, market_index['Price'], label=file_name, color='blue')
     plt.plot(unique_drops.index, unique_drops['Price'], 'r.', markersize=10, label='5% Drop from All-Time High')
-    plt.plot(first_day_of_month, market_index.loc[first_day_of_month,'Price'], 'g.', markersize=10, label='5% Drop from All-Time High')
-    plt.title('FTSE All World Index')
+    # plt.plot(first_day_of_month, market_index.loc[first_day_of_month,'Price'], 'g.', markersize=10, label='5% Drop from All-Time High')
+    plt.title(file_name)
     plt.xlabel('Date')
     plt.ylabel('Price')
     plt.legend()
@@ -114,4 +100,4 @@ for file_name in os.listdir(indices_folder):
     plt.tight_layout()
 
 
-    # plt.show()
+    plt.show()
