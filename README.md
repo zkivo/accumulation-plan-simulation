@@ -9,9 +9,9 @@ The simulation suggests that investing regularly without trying to market timing
 
 Example output
 ```
-Processing file: FTSE All World Historical Price Data.csv
-market timing / dca = [0.7701461502980745]
+Processing file: MSCI World Historical Data.csv
+market timing / dca = [0.8113798287646228]
 unused salaries in market timing =  29
 ```
 
-Also 29 salaries were unused by waiting a drop of 5% in this simulation. 
+Also 29 salaries were unused by waiting a drop of 5% in this simulation. This can also be seen in the graphs above. For two years there has been one drop of 5% from all-time high. 
