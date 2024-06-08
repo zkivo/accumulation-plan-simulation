@@ -44,16 +44,16 @@ for file_name in os.listdir(indices_folder):
 
     # Identify points where the price dropped 5%, 10%, 15% and 20%
     # market_index.astype({'Price': 'float32'})
-    market_index['Drop_5_Percent'] = \
+    market_index['Drop 5%'] = \
         market_index['Price'] <= (market_index['All_Time_High'] * 0.95)
-    market_index['Drop_10_Percent'] = \
+    market_index['Drop 10%'] = \
         market_index['Price'] <= (market_index['All_Time_High'] * 0.90)
-    market_index['Drop_15_Percent'] = \
+    market_index['Drop 15%'] = \
         market_index['Price'] <= (market_index['All_Time_High'] * 0.85)
-    market_index['Drop_20_Percent'] = \
+    market_index['Drop 20%'] = \
         market_index['Price'] <= (market_index['All_Time_High'] * 0.80)
 
-    list_drop_strings = ['Drop_5_Percent', 'Drop_10_Percent', 'Drop_15_Percent', 'Drop_20_Percent']
+    list_drop_strings = ['Drop 5%', 'Drop 10%', 'Drop 15%', 'Drop 20%']
 
     # Preparing plot of the figure
     plt.figure(figsize=(14, 7))
