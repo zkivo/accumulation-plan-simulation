@@ -1,11 +1,13 @@
-# Accumulation Plan Strategies
-Investing regularly or market timing? Simulation in World indices.
+# Accumulation Plan Simulations
+Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start asking yourself whether you should invest regularly part of your paycheck into some world indices, or wait for a drop, you should know what you are getting into. In this project, I am doing a simulation between simple dollar cost averaging, i.e., investing in an index every month when the paycheck is received, and simple market timing. For example, since we cannot forecast the future, a simple strategy can consist on waiting until a drop of the market to invest. The drop can be 5%, 10%, or 15%.
+
+The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring market, i.e., the world market.
 
 ![Figure_1](https://github.com/zkivo/accumulation-plan-strategies/assets/58048638/691bab8d-45f9-4efc-9f92-cb7aebe91195)
 
 Simulation: buying with all the accumulated salaries at each 5% drop from all-time high.
 
-The simulation suggests that investing regularly without trying to market timing by waiting a drop of 5%, it provides better outcomes.
+The simulation suggests that investing regularly (Dollar Cost Averaging) without trying to market timing by waiting a drop of 5%, it provides better outcomes.
 
 Example output
 ```
