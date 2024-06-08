@@ -3,17 +3,26 @@ Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start 
 
 The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring market, i.e., the world market.
 
+# Results of simulation
+
 ![msci-graph](https://github.com/zkivo/accumulation-plan-simulation/assets/58048638/0c7bbdab-1f3b-44c7-b046-8bf35156facc)
 
-Simulation: buying with all the accumulated salaries at each 5% drop from all-time high.
+## Table of performance: Market timing / DCA
 
-The simulation suggests that investing regularly (Dollar Cost Averaging) without trying to market timing by waiting a drop of 5%, it provides better outcomes.
+|market                                  |Drop 5%|Drop 10%|Drop 15%|Drop 20%|
+|----------------------------------------|-------|--------|--------|--------|
+|FTSE All World Historical Price Data.csv|-22.99 |-18.79  |-12.16  |-3.87   |
+|MSCI World Historical Data.csv          |-18.86 |-16.99  |-9.75   |-11.51  |
+|S&P 500 Historical Data.csv             |-7.98  |-20.83  |-28.63  |-41.57  |
 
-Example output
-```
-Processing file: MSCI World Historical Data.csv
-market timing / dca = [0.8113798287646228]
-unused salaries in market timing =  29
-```
+## Table of # of unused salaries at the end date
 
-Also 29 salaries were unused by waiting a drop of 5% in this simulation. This can also be seen in the graphs above. For two years there has been one drop of 5% from all-time high. 
+|market                                  |Drop 5%|Drop 10%|Drop 15%|Drop 20%|
+|----------------------------------------|-------|--------|--------|--------|
+|FTSE All World Historical Price Data.csv|29     |27      |25      |23      |
+|MSCI World Historical Data.csv          |29     |28      |25      |24      |
+|S&P 500 Historical Data.csv             |2      |0       |14      |156     |
+
+Above are the results of the simulation. This simulation consider two world indicies and one for the USA market, just for comparison.
+
+The first table shows the performace of each strategies compared to the normal DCA, meanwhile the second shows how many salaries are not used at the end of the simulation period. The strategies are shown under the **drop** columns, and as we can see they all underperform the simple DCA strategies. Leaving, also, the investor with many paycheck not invested.  
