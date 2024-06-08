@@ -3,7 +3,7 @@ Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start 
 
 The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring market, i.e., the world market.
 
-![Figure_1](https://github.com/zkivo/accumulation-plan-strategies/assets/58048638/691bab8d-45f9-4efc-9f92-cb7aebe91195)
+![msci-graph](https://github.com/zkivo/accumulation-plan-simulation/assets/58048638/0c7bbdab-1f3b-44c7-b046-8bf35156facc)
 
 Simulation: buying with all the accumulated salaries at each 5% drop from all-time high.
 
