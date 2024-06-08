@@ -3,13 +3,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
 import os
+import csv
 import gc
 import datetime
 
 # Specify the directory you want to iterate through
 indices_folder = 'market-indices'
 
-list_results = []
+list_drop_strings = ['Drop 5%', 'Drop 10%', 'Drop 15%', 'Drop 20%']
+
+# this list contains the relatioship between the market timing strategies over the dca
+# for each market
+list_performance = [['market', 'Drop 5%', 'Drop 10%', 'Drop 15%', 'Drop 20%']]
+# same but with unused salaries
+list_unused_salaries = [['market', 'Drop 5%', 'Drop 10%', 'Drop 15%', 'Drop 20%']]
 
 # Loop through each file in the directory
 for file_name in os.listdir(indices_folder):
@@ -17,7 +24,6 @@ for file_name in os.listdir(indices_folder):
     if not os.path.isfile(file_path): continue
     print(f'\nProcessing file: {file_name}')
 
-    list_results.append({'file_name': file_name})
 
     # Reading the csv file and store it in a pandas dataframe
     market_index = pd.read_csv(file_path)
@@ -53,13 +59,24 @@ for file_name in os.listdir(indices_folder):
     market_index['Drop 20%'] = \
         market_index['Price'] <= (market_index['All_Time_High'] * 0.80)
 
-    list_drop_strings = ['Drop 5%', 'Drop 10%', 'Drop 15%', 'Drop 20%']
+    try:
+        del list_performance_market
+        gc.collect() # garbage collector
+    except:
+        pass   
+    try:
+        del list_unused_salaries_market
+        gc.collect() # garbage collector
+    except:
+        pass   
 
+    list_performance_market = []
+    list_unused_salaries_market = []
     # Preparing plot of the figure
     plt.figure(figsize=(14, 7))
     plt.plot(market_index.index, market_index['Price'], label=file_name, color='blue')
-    for string in list_drop_strings:
-        # print("\tresults for ", string)
+    for stringa in list_drop_strings:
+        # print("\tresults for ", stringa)
         try:
             del unique_drops
             gc.collect() # garbage collector
@@ -71,9 +88,9 @@ for file_name in os.listdir(indices_folder):
         except:
             pass
 
-        unique_drops = market_index[['All_Time_High',string]] \
+        unique_drops = market_index[['All_Time_High',stringa]] \
                     .drop_duplicates(keep='first')
-        unique_drops = unique_drops[unique_drops[string] == True]
+        unique_drops = unique_drops[unique_drops[stringa] == True]
         unique_drops = unique_drops.merge(market_index, on='Date', how='inner')
 
         # calculating for each drop how much investing in the index
@@ -99,15 +116,18 @@ for file_name in os.listdir(indices_folder):
         performance_strategy = round((((market_timing / dca) - 1) * 100)[0].item(), 2)
 
         # print(type(performance_strategy))
-
         # print('market timing / dca = ', str(performance_strategy), '%')
         # print('unused salaries in market timing = ', unused_salaries)
 
-        list_results[-1][string] = {'mt / dca': performance_strategy,
-                                    'unused_salaries' : unused_salaries}
+        list_performance_market.append(performance_strategy)
+        list_unused_salaries_market.append(unused_salaries)
+        plt.plot(unique_drops.index, unique_drops['Price'], '.', markersize=10, label=stringa)
 
-        plt.plot(unique_drops.index, unique_drops['Price'], '.', markersize=10, label=string)
-    # plt.plot(first_day_of_month, market_index.loc[first_day_of_month,'Price'], 'g.', markersize=10, label='5% Drop from All-Time High')
+    list_performance_market.insert(0, file_name)
+    list_unused_salaries_market.insert(0, file_name)
+    list_performance.append(list_performance_market)
+    list_unused_salaries.append(list_unused_salaries_market)
+
     plt.title(file_name)
     plt.xlabel('Date')
     plt.ylabel('Price')
@@ -115,5 +135,22 @@ for file_name in os.listdir(indices_folder):
     plt.xticks(rotation=45)
     plt.tight_layout()
 
-pprint(list_results)
+with open("performance.csv", "w", newline="") as f:
+   writer = csv.writer(f)
+   writer.writerows(list_performance)
+with open('performance.csv', newline='') as csvfile:
+ data = csv.reader(csvfile, delimiter=' ')
+ for row in data:
+   print(', '.join(row))
+
+print()
+
+with open("unused-salaries.csv", "w", newline="") as f:
+   writer = csv.writer(f)
+   writer.writerows(list_unused_salaries)
+with open('unused-salaries.csv', newline='') as csvfile:
+ data = csv.reader(csvfile, delimiter=' ')
+ for row in data:
+   print(', '.join(row))
+
 plt.show()
