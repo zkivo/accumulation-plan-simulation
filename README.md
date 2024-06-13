@@ -11,9 +11,9 @@ The code can be "easily" changed to simulate different markets. However, a good 
 
 |market                                  |Drop 5%|Drop 10%|Drop 15%|Drop 20%|
 |----------------------------------------|-------|--------|--------|--------|
-|FTSE All World Historical Price Data.csv|-22.99 |-18.79  |-12.16  |-3.87   |
-|MSCI World Historical Data.csv          |-18.86 |-16.99  |-9.75   |-11.51  |
-|S&P 500 Historical Data.csv             |-7.98  |-20.83  |-28.63  |-41.57  |
+|FTSE All World Historical Price Data.csv|-22.99% |-18.79%  |-12.16%  |-3.87%   |
+|MSCI World Historical Data.csv          |-18.86% |-16.99%  |-9.75%   |-11.51%  |
+|S&P 500 Historical Data.csv             |-7.98%  |-20.83%  |-28.63%  |-41.57%  |
 
 ## Table of # of unused salaries at the end date
 
