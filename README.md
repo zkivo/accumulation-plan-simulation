@@ -26,3 +26,10 @@ The code can be "easily" changed to simulate different markets. However, a good 
 Above are the results of the simulation. This simulation consider two world indicies and one for the USA market, just for comparison.
 
 The first table shows the performace of each strategies compared to the normal DCA, meanwhile the second shows how many salaries are not used at the end of the simulation period. The strategies are shown under the **drop** columns, and as we can see they all underperform the simple DCA strategies. Leaving, also, the investor with many paycheck not invested.  
+
+# data
+FTSE All World: daily data starting from 10/14/2013.
+MSCI world: daily data starting from 07/09/2012.
+S&P 500: daily data starting from 12/26/1979.
+
+
