@@ -29,7 +29,9 @@ The first table shows the performace of each strategies compared to the normal D
 
 # data
 FTSE All World: daily data starting from 10/14/2013.
+
 MSCI world: daily data starting from 07/09/2012.
+
 S&P 500: daily data starting from 12/26/1979.
 
 
