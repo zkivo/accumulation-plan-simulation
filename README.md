@@ -1,7 +1,7 @@
 # Accumulation Plan Simulations
 Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start asking yourself whether you should invest regularly part of your paycheck into some world indices, or wait for a drop, you should know what you are getting into. In this project, I am doing a simulation between simple dollar cost averaging, i.e., investing in an index every month when the paycheck is received, and simple market timing. For example, since we cannot forecast the future, a simple strategy can consist on waiting until a drop of the market to invest. The drop can be 5%, 10%, or 15%.
 
-The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring market, i.e., the world market.
+The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring (but best) market, i.e., the world market.
 
 # Results of simulation
 
