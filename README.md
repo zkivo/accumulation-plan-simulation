@@ -1,11 +1,11 @@
 # Accumulation Plan Simulations
-Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start asking yourself whether you should invest regularly part of your paycheck into some world indices, or wait for a drop, you should know what you are getting into. In this project, I am doing a simulation between simple dollar cost averaging, i.e., investing in an index every month when the paycheck is received, and simple market timing. For example, since we cannot forecast the future, a simple strategy can consist on waiting until a drop of the market to invest. The drop can be 5%, 10%, or 15%.
+Dollar Cost Averaging or Simple Market Timing? Once you have a salary and start asking yourself whether you should invest regularly part of your paycheck into some world indices, or wait for a drop, you should know what you are getting into. In this project, I am doing a simulation between simple dollar cost averaging, i.e., investing in an index every month when the paycheck is received, and simple market timing. For example, since we cannot forecast the future, a simple strategy can consist on investing the accumulated paychecks when a market drop occurs. The drop simulated are 5%, 10%, 15% or 20% from All-Time-High.
 
 The code can be "easily" changed to simulate different markets. However, a good passive investor, in my opinion, should know how these simple strategies work with one of the simplest and most boring (but best) market, i.e., the world market.
 
 # Results of simulation
 
-![msci-graph](https://github.com/zkivo/accumulation-plan-simulation/assets/58048638/0c7bbdab-1f3b-44c7-b046-8bf35156facc)
+![Figure_1](https://github.com/zkivo/accumulation-plan-simulation/assets/58048638/f1897b36-b0a2-478e-a99f-ff66079f0811)
 
 ## Table of performance: Market timing / DCA
 
