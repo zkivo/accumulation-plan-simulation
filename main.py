@@ -1,7 +1,5 @@
-from pprint import pprint
-import pandas as pd
 import matplotlib.pyplot as plt
-import yfinance as yf
+import pandas as pd
 import os
 import csv
 import gc
@@ -74,7 +72,7 @@ for file_name in os.listdir(indices_folder):
     list_unused_salaries_market = []
     # Preparing plot of the figure
     plt.figure(figsize=(14, 7))
-    plt.plot(market_index.index, market_index['Price'], label=file_name, color='blue')
+    plt.plot(market_index.index, market_index['Price'], label=file_name)
     for stringa in list_drop_strings:
         # print("\tresults for ", stringa)
         try:
